@@ -1,2 +1,0 @@
-class Positive < ApplicationRecord
-end
