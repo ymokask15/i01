@@ -1,0 +1,2 @@
+class Positive < ApplicationRecord
+end
