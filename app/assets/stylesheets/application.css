@@ -1,0 +1,291 @@
+/*
+* This is a manifest file that'll be compiled into application.css.
+*
+* With Propshaft, assets are served efficiently without preprocessing steps. You can still include
+* application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
+* cascading order, meaning styles declared later in the document or manifest will override earlier ones,
+* depending on specificity.
+*
+* Consider organizing styles into separate files for maintainability.
+*/
+
+/* app/assets/stylesheets/application.css */
+.bar {
+    transition: all 0.3s ease;
+  }
+  
+  body {
+    background-color: #FFF8F1; /* サイト全体の背景色を赤に設定 */
+  }
+ 
+  .box {
+    width: 1120px;
+    height: 750px;
+    background-color: #FFDDB8; /* 黄色の背景色を設定 */
+    position: absolute; /* 絶対位置に設定 */
+    top: 0px; /* 上から10pxの位置に設定 */
+    left: 220px; /* 左から10pxの位置に設定 */
+    z-index: -1; /* 最背面に配置 */
+  }
+ 
+  .design01 {
+    width:95%; /* 表の幅を80%に設定 */
+    margin: 0 auto; /* 表を中央に配置 */
+    text-align: center;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed; /* セルの幅を均一にする */
+  }
+  
+  .design01 th {
+    padding: 35px 10px; /* 上下のパディングを20pxに設定 */
+    text-align: center;
+    background: #EE9300; /* 背景色はそのまま */
+    border: solid 1px #E07D00; /* 枠線の色を赤に変更 */
+    color: #ffffff; /* 文字色を白に設定 */
+  }
+  
+  .design01 td {
+    padding: 35px 10px; /* 上下のパディングを20pxに設定 */
+    text-align: center;
+    background: #ffffff;
+    border: solid 1px #EE9300; /* 枠線の色を赤に変更 */
+    width: 33.33%; /* 各セルの幅を均一に設定 */
+  }
+ 
+ /* ポジティブワード一覧のスタイルを変更 */
+ h1 {
+  font-size: 18px; /* 文字サイズを小さく設定 */
+  font-family: 'Arial', sans-serif; /* フォントをArialに変更 */
+  margin-left: 230px; /* 右にずらす */
+  color: #ffffff; /* 文字色を白に設定 */
+  text-shadow: 
+    -2px -2px 0 #EE9300,  
+    2px -2px 0 #EE9300,
+    -2px 2px 0 #EE9300,
+    2px 2px 0 #EE9300; /* 縁取りを#EE9300に変更し、サイズを大きく設定 */
+    margin-top: 30px; /* 上に余裕を持たせる */
+    margin-bottom: 30px; /* 下に余裕を持たせる */
+ }
+ 
+ .pagination-container {
+  text-align: center; /* 中央揃え */
+  margin-top: 20px;    /* 必要に応じて上にマージンを追加 */
+ }
+ 
+ 
+ /* チェックボックス項目を縦に並べる */
+ .right-form .checkbox-item {
+  display: flex;
+  justify-content: flex-end;  /* チェックボックスを右に配置 */
+  align-items: center;        /* チェックボックスとラベルを縦方向に中央揃え */
+  margin-bottom: 10px;        /* チェックボックスの間隔 */
+ }
+ 
+ /* チェックボックスとラベルの間隔を調整 */
+ .checkbox-item input {
+  margin-right: 10px;  /* チェックボックスとラベルの間隔 */
+ }
+ 
+ /* ラベルの配置調整 */
+ .checkbox-item label {
+  white-space: nowrap;  /* ラベルが折り返さないようにする */
+  display: inline-block; /* ラベルの大きさを調整する */
+ }
+ 
+ /* 階層の子要素のインデントを作成 */
+ .checkbox-item .sub-item {
+  margin-left: 20px;  /* 子要素にインデントをつける */
+ }
+ 
+ /* 子チェックボックスの位置調整 */
+ .checkbox-item .sub-item input {
+  margin-left: 5px;  /* 子チェックボックスの右側に少し間隔を空ける */
+ }
+ 
+ 
+ 
+ /* フィルターボタンを右に配置 */
+ .filter-button {
+  margin-bottom: 10px;
+  text-align: right; /* ボタンを右寄せ */
+ }
+ 
+ 
+ .filter-form {
+  display: flex;  /* 横並びにするためにFlexboxを使用 */
+  justify-content: space-between;  /* 両端に配置 */
+  gap: 30px;  /* 両者の間隔を調整 */
+ }
+ 
+ .left-form {
+  flex: 0 0 170px;  /* 右側のフィルターフォーム（チェックボックス）は固定幅で設定 */
+  padding: 10px;
+  border-radius: 8px;
+ }
+ 
+ .center-form {
+  flex: 1; /* 残りのスペースを中央に割り当て */
+  padding: 0 15px; /* 余白を追加 */
+  display: flex;
+  justify-content: center; /* 中央寄せ */
+ }
+
+ .right-form {
+  flex: 0 0 100px;  /* 右側のフィルターフォーム（チェックボックス）は固定幅で設定 */
+  padding: 10px;
+  background-color: #E5D5C0;
+  border-radius: 8px;
+ }
+ 
+ table {
+  width: 100%;  /* テーブルを親要素（.left-form）に合わせて広げる */
+  border-collapse: collapse;
+ }
+ 
+ table th, table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #FFFFFF;
+ }
+ 
+ .checkbox-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  justify-content: flex-start;
+ }
+ 
+ .place-checkbox {
+  margin-right: 8px;
+ }
+ 
+ .checkbox-item label {
+  min-width: 100px; /* ここでラベルの最小幅を設定 */
+  text-align: left; /* 文字列を左寄せ */
+  display: inline-block;
+  white-space: nowrap; /* ラベル内で改行しない */
+ }
+ .filter-button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background-color: #EE9300;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+ }
+ 
+ .filter-button:hover {
+  background-color: #EE9300;
+ }
+ 
+ 
+ /* リンクのスタイル */
+ .graph-link {
+  display: inline-block; /* インラインブロック */
+  padding: 10px 20px;     /* 内側の余白（上下10px、左右20px） */
+  margin: 8px;              /* 外側の余白（ボタン周りの余白） */
+  background-color: #DCB69B;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 1rem;
+  line-height: 1.5;        /* テキストの縦位置を中央に */
+  min-height: 25px;        /* 最小の高さを固定（調整可能） */
+  min-width: 100px;        /* 最小の幅を固定（調整可能） */
+  white-space: nowrap;     /* テキストが折り返さないように */
+  vertical-align: middle;  /* 垂直方向の位置調整（必要に応じて） */
+ }
+ 
+ 
+ /* 日付選択のためのスタイル */
+ .date-selects {
+  display: flex;
+  flex-direction: column;  /* 縦方向に並べる */
+  gap: 10px; /* 各プルダウンの間隔 */
+ }
+ 
+ .date-selects select {
+  padding: 5px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+ }         
+ 
+ /* 親コンテナ: 3列2行で配置 */
+ 
+ 
+ .locations-container {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 20px;
+     justify-content: center;
+     align-items: center;
+     height: auto;
+   }
+   
+   .location-box {
+     width: 200px;
+     height: 200px;
+     border-radius: 50%;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     border: 5px solid transparent; /* 初期の枠線の色 */
+     box-sizing: border-box;
+     padding: 10px;
+     background-color: #f9f9f9;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   }
+   
+   .location-box h3 {
+     margin: 0;
+   }
+   
+   .location-box ul {
+     list-style-type: none;
+     padding: 0;
+     margin: 0;
+   }
+ 
+   .location-box li {
+     font-size: 1rem;
+   }
+ 
+   .location-box p {
+     margin: 2px 0; /* 各行の上下の余白を小さく */
+     padding: 0; /* 内側の余白をなくす */
+   }
+   
+   
+   .locations-container {
+     display: flex;
+     flex-wrap: wrap; 
+     gap: 20px;
+     justify-content: space-around; /* 各円を均等配置 */
+   }
+   
+   
+   
+   /* ヘッダーのスタイル */
+   .location-box h3 {
+     margin-bottom: 10px; /* 下に少し余白を追加 */
+   }
+   
+   /* リストのスタイル */
+   .location-box ul {
+     list-style-type: none; /* リストマーカーを非表示 */
+     padding: 0; /* 内側の余白をリセット */
+   }
+   
+   .location-box li {
+     margin: 5px 0; /* 各リストアイテム間の余白 */
+   }
+
+   

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Word:</strong>
+  <%= @positive.word %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @positive.count %>
+</p>
+
+<p>
+  <strong>Place:</strong>
+  <%= @positive.place %>
+</p>
+
+<p>
+  <strong>Datetime:</strong>
+  <%= @positive.datetime %>
+</p>
+
+<%= link_to 'Edit', edit_positive_path(@positive) %> |
+<%= link_to 'Back', positives_path %>

@@ -1,0 +1,85 @@
+
+<div style="position: relative; width: 100%; height: 500px;">
+<h1 style="margin-bottom: 0; margin-left: 280px;">過去の一週間の感謝メーター</h1>
+
+
+<%= column_chart @graph_data, options = {
+  stacked: true,
+  max_width: '100vw',
+  colors: ["#F7AC5B", "#FFF33F"],
+  borderColor: "#F7EADD",  # バーの枠線の色
+  borderWidth: 6,  # バーの枠線の太さ
+  thousands: ",",
+  suffix: "回",
+  height: 25,  # 高さを指定（単位：px）
+  library: {
+    backgroundColor: "#FFF8F0",  # 背景色を変更
+    scales: {
+      xAxes: [{
+        type: 'category',
+        labels: @graph_data.keys.map { |d| d.to_date == Date.today ? "本日" : d.strftime('%-m/%-d') }
+      }]
+    },
+    elements: {
+      rectangle: {
+        borderRadius: 10  # バーの角を丸くするために指定（ここで角の丸さを指定）
+      }
+    }
+  }
+} %>
+
+
+  <!-- 四角い枠を描画、角を丸くする -->
+  <div style="position: absolute; top: -10px; left: 50px; right: 50px; height: 80%; border: 2px solid #E7DCD0; border-radius: 15px; pointer-events: none;"></div>
+  </div>
+
+
+
+
+    <h1 style="margin-top: 0; margin-left: 280px;">感謝ワードの総数 (過去1週間)</h1>
+
+
+    <div class="locations-container">
+    <% @positive_counts.each_with_index do |(place, words), index| %>
+      <div class="location-box" style="background-color: <%= @circle_colors[index] %>;">
+        <h3><%= place %></h3>
+        <ul>
+          <% words.each do |word| %>
+            <li><%= word.word %>（<%= word.total_count %>回）</li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+
+<nav>
+  <ul>
+  <li><%= link_to '従業員用ページ2', employee2_positives_path %></li>
+  </ul>
+</nav>
+
+
+
+
+
+
+
+
+  
+    
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

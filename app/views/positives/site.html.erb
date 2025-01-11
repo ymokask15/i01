@@ -1,0 +1,93 @@
+<h1>場所別ポジティブワードの総数</h1>
+
+<div class="box" >
+</div>
+
+<%= form_with url:site_positives_path, method: :get, local: true do |form| %>
+  <div class="filter-form">
+    <div class="left-form">
+      <!-- ログアウトを表示するリンクを左側に配置 -->
+      <%= link_to 'ログアウト', '/positives', class: 'graph-link' %>
+   
+      <!-- 言葉一覧を表示するリンクを左側に配置 -->
+      <%= link_to '言葉一覧', '/positives', class: 'graph-link' %>
+  
+      <!-- 期間別推定を表示するリンクを左側に配置 -->
+      <%= link_to '期間別推定', '/positives/period', class: 'graph-link' %>
+  
+      <!-- 場所別の総数を表示するリンクを左側に配置 -->
+      <%= link_to '場所別の総数', '/positives/site', class: 'graph-link' %>
+    </div>    
+
+    <div class="center-form">
+    <%= column_chart @location_counts, 
+    library: {
+      height: 600,               # グラフの高さを500pxに設定
+      width: 1070,               # グラフの幅を1200pxに設定
+      
+      xAxis: {
+        gridLineWidth: 0,
+        lineWidth: 0,
+        labels: {
+          style: {
+            fontWeight: 'bold'  # 横軸のラベル文字を太字に設定
+          }
+        }
+      },
+      yAxis: {
+        gridLineWidth: 0,        # 縦軸のグリッド線を非表示に
+        lineWidth: 0             # 縦軸の線自体を非表示に
+      },
+      colors: ["#EE9300"]  # グラフの色を変更（例として3色）
+    } 
+  %>
+  </div>
+  
+  
+  
+
+    <!-- 右側: フィルタフォーム（チェックボックス） -->
+    <div class="right-form">   
+      <!-- 開始日と終了日 -->
+      <div class="form-group">
+        <label for="start_date">開始日</label>
+        <div class="date-selects">
+          <%= select_tag :start_year, options_for_select((2020..2025).to_a, params[:start_year]), prompt: "年" %>
+          <%= select_tag :start_month, options_for_select((1..12).to_a, params[:start_month]), prompt: "月" %>
+          <%= select_tag :start_day, options_for_select((1..31).to_a, params[:start_day]), prompt: "日" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="end_date">終了日</label>
+        <div class="date-selects">
+          <%= select_tag :end_year, options_for_select((2020..2025).to_a, params[:end_year]), prompt: "年" %>
+          <%= select_tag :end_month, options_for_select((1..12).to_a, params[:end_month]), prompt: "月" %>
+          <%= select_tag :end_day, options_for_select((1..31).to_a, params[:end_day]), prompt: "日" %>
+        </div>
+      </div>
+      <%= submit_tag "フィルタ", class: "filter-button" %>
+    </div>
+  </div>
+<% end %>
+
+
+
+
+<div class="pagination-container" style="margin-top: 280px;">
+  <!-- CSVアップロードフォーム -->
+  <%= form_with url: upload_csv_positives_path, local: true, multipart: true do |form| %>
+    <%= form.file_field :csv_file, accept: '.csv' %>
+    
+    <!-- 場所の入力フィールドを追加 -->
+    <%= form.text_field :place, placeholder: '場所を入力してください' %>
+
+    <%= form.submit 'CSV アップロード' %>
+  <% end %>
+</div>
+
+
+<nav>
+  <ul>
+  <li><%= link_to '従業員用ページ', employee_positives_path %></li>
+  </ul>
+</nav>
